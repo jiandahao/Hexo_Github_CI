@@ -55,8 +55,9 @@ jobs:
         sed -i "s/GH_TOKEN/${TOKEN}/g" ./_config.yml
         hexo generate && hexo deploy
 ```
+这里需要注意的是，我们需要先创建一个access token，这样我们才可以在CI环境中自动通过github的验证，平时我们都是通过SSH或者输入帐号密码的方式完成push的，但是在该CI环境中显然不行，所有我们可以使用github提供的access token方式。在[这里](https://github.com/settings/tokens)创建你的token。然后再创建一个secret key，在仓库的settings里面。
 
-再创建一个仓库，专门用来保存我们平时的笔记，文章等。假设仓库名为`notes`，
+接下来我们创建一个专门用来保存我们平时的笔记，文章等的仓库。假设仓库名为`notes`，
 创建完成后给该笔记仓库也添加一个CI
 ```yaml
 # This is a basic workflow to help you get started with Actions
